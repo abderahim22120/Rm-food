@@ -3,39 +3,101 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🍲%3C/text%3E%3C/svg%3E">
-<title>دار الجزائر | مطعم الأكل الجزائري</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="مدرسة تعليم السياقة في الجزائر - رخصة السيارة والحافلات، تسجيل أونلاين">
+<title>مدرسة تعليم السياقة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
+<div id="splash">
+ <div class="badge">🚗</div>
+ <h1 id="sName">مدرسة السياقة</h1>
+ <p>طريقك نحو رخصة السياقة يبدأ من هنا</p>
+ <button class="go" onclick="enter()">ابدأ الآن ←</button>
+ <div class="car">🚗</div><div class="road"></div>
+</div>
 
-<section id="home">
-  <div class="pattern"></div>
-  <div class="logo">✦ مطعم ✦</div>
-  <h1 class="serif" id="hn"></h1>
-  <p class="sub" id="hs"></p>
-  <div class="stage" id="stage"></div>
-  <div class="dname serif" id="dn"></div>
-  <div class="ddesc" id="dd"></div>
-  <div class="dots" id="dots"></div>
-  <button class="cta" onclick="go('menu')">شاهد القائمة</button>
-  <div class="badges"><span>🛵 توصيل للمنزل</span><span>🔥 طبخ طازج يومياً</span><span>⭐ وصفات تقليدية</span></div>
-</section>
+<header><div class="wrap">
+ <div class="logo"><span style="font-size:24px">🚗</span><span id="hName">مدرسة السياقة</span></div>
+ <nav><a href="#licenses">الرخص</a><a href="#steps">المراحل</a><a href="#reg">التسجيل</a><a href="#contact">اتصل بنا</a></nav>
+ <button class="btn alt" onclick="openAdm()">⚙️ لوحة التحكم</button>
+</div></header>
 
-<section id="menu" class="hide">
-  <header><b class="serif" id="hb"></b><button class="back" onclick="go('home')">← الرئيسية</button></header>
-  <div class="banner"><span>🛵</span><div><b>توصيل سريع إلى منزلك</b><div style="color:var(--mut);font-size:14px" id="bn"></div></div></div>
-  <div class="tabs" id="tabs"></div>
-  <div class="grid" id="grid"></div>
-  <footer>الأسعار بالدينار الجزائري (دج)</footer>
-  <button class="bar hide" id="bar" onclick="openCart()"><span>🛒 عرض السلة (<span id="bc">0</span>)</span><span id="bt">0 دج</span></button>
-</section>
+<div class="hero"><div class="wrap">
+ <h1>احصل على رخصة السياقة<br>بثقة وسهولة</h1>
+ <p id="hAbout"></p>
+ <a class="btn" href="#reg">سجّل الآن</a> <a class="btn alt" href="#contact">📍 موقعنا</a>
+ <div class="stats"><div><b>+1200</b>متكوّن ناجح</div><div><b>95%</b>نسبة النجاح</div><div><b>+10</b>سنوات خبرة</div></div>
+</div></div>
 
-<div class="ov hide" id="ov" onclick="if(event.target===this)closeCart()"><div class="sheet" id="sheet"></div></div>
+<section id="licenses"><div class="wrap">
+ <h2>أصناف الرخص</h2><p class="sub">الأسعار بالدينار الجزائري</p>
+ <div class="grid" id="lic"></div>
+</div></section>
 
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+<section id="steps" style="background:var(--card)"><div class="wrap">
+ <h2>مراحل الحصول على الرخصة</h2><p class="sub">أربع خطوات بسيطة</p>
+ <div class="grid steps">
+  <div class="card"><h3>تكوين الملف</h3>شهادة ميلاد، شهادة طبية، صور شمسية، فحص فصيلة الدم.</div>
+  <div class="card"><h3>الدروس النظرية</h3>قانون المرور والإشارات والسلامة الطرقية (الكود).</div>
+  <div class="card"><h3>التدريب الميداني</h3>حصص تطبيقية في الحلبة والطريق مع مؤطر.</div>
+  <div class="card"><h3>الامتحان</h3>امتحان نظري ثم تطبيقي (المناورات والطريق).</div>
+ </div>
+</div></section>
+
+<section id="reg"><div class="wrap two">
+ <div>
+  <h2>سجّل معنا</h2><p class="sub">املأ النموذج وسنتصل بك في أقرب وقت</p>
+  <label>الاسم الكامل</label><input id="rn">
+  <label>رقم الهاتف</label><input id="rp" type="tel" placeholder="05 / 06 / 07 XX XX XX XX">
+  <label>صنف الرخصة</label><select id="rl"></select>
+  <label>ملاحظة (اختياري)</label><textarea id="rm" rows="2"></textarea>
+  <p><button class="btn" onclick="sendReg()">إرسال الطلب</button></p>
+ </div>
+ <div id="contact">
+  <h2>اتصل بنا</h2><p class="sub">تفضّل بزيارتنا</p>
+  <div class="card">
+   <div class="maprow"><div class="pin"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+    <div><b id="cAddr"></b><div class="hint" id="cWil"></div></div></div>
+   <div>📞 <a id="cTel" style="color:var(--pri);font-weight:700;direction:ltr;unicode-bidi:embed"></a></div>
+   <div>🕘 <span id="cHrs"></span></div>
+   <div class="mapbox" id="mapbox"></div>
+   <p><a class="btn red" id="mapBtn" target="_blank" rel="noopener" style="display:none">📍 افتح في Google Maps</a></p>
+  </div>
+ </div>
+</div></section>
+
+<footer>© <span id="yr"></span> <span id="fName"></span> — الجزائر 🇩🇿</footer>
+
+<div id="adm"><div class="panel">
+ <div class="ph"><h2 style="margin:0">⚙️ لوحة التحكم</h2><button class="btn alt" onclick="closeAdm()">إغلاق ✕</button></div>
+ <div id="login">
+  <label>كلمة المرور</label><input id="pw" type="password" placeholder="كلمة المرور الافتراضية: admin123" onkeydown="if(event.key==='Enter')login()">
+  <p><button class="btn" onclick="login()">دخول</button></p>
+  <div class="hint">ملاحظة: الحماية تجريبية داخل المتصفح فقط. للاستخدام الفعلي اربط الموقع بخادم وقاعدة بيانات.</div>
+ </div>
+ <div id="dash" style="display:none">
+  <div class="tabs"><button class="on" data-t="t1">معلومات المحل</button><button data-t="t2">الأسعار</button><button data-t="t3">الطلبات <span id="cnt"></span></button><button data-t="t4">الأمان</button></div>
+  <div class="tab on" id="t1">
+   <label>اسم المدرسة</label><input id="aName">
+   <label>نبذة</label><textarea id="aAbout" rows="2"></textarea>
+   <label>رقم الهاتف</label><input id="aTel" type="tel">
+   <label>الولاية / البلدية</label><input id="aWil" placeholder="مثال: الجزائر العاصمة - باب الزوار">
+   <label>العنوان</label><input id="aAddr">
+   <label>ساعات العمل</label><input id="aHrs">
+   <label>📍 موقع المحل على Google Maps</label>
+   <input id="aMap" dir="ltr" placeholder="الصق رابط Google Maps أو الإحداثيات: 36.7538, 3.0588">
+   <div class="hint">افتح Google Maps ← اضغط مطولاً على موقع المحل ← انسخ الإحداثيات أو رابط المشاركة.</div>
+   <p><button class="btn alt" onclick="geo()">📍 استخدم موقعي الحالي</button> <button class="btn" onclick="saveInfo()">حفظ</button></p>
+  </div>
+  <div class="tab" id="t2"><div id="pl"></div><p><button class="btn" onclick="savePrices()">حفظ الأسعار</button></p></div>
+  <div class="tab" id="t3"><div class="tbl"><table><thead><tr><th>الاسم</th><th>الهاتف</th><th>الصنف</th><th>التاريخ</th><th></th></tr></thead><tbody id="rows"></tbody></table></div><div class="hint" id="empty"></div></div>
+  <div class="tab" id="t4"><label>كلمة مرور جديدة</label><input id="np" type="password"><p><button class="btn" onclick="savePw()">تغيير</button></p></div>
+ </div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
